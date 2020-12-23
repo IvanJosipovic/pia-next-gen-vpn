@@ -18,6 +18,6 @@ RUN echo "sh /vpn/up.sh\n" >> /manual-connections/openvpn_config/openvpn_up_dnso
 RUN echo "sh /vpn/up.sh\n" >> /manual-connections/openvpn_config/openvpn_up.sh
 RUN echo "sh /vpn/down.sh\n" >> /manual-connections/openvpn_config/openvpn_down_dnsoverwrite.sh
 RUN echo "sh /vpn/down.sh\n" >> /manual-connections/openvpn_config/openvpn_down.sh
-RUN sed '/^port=.*/a echo $port > /shared/vpnport' /manual-connections/port_forwarding.sh > /manual-connections/port_forwarding2.sh
+RUN sed '/^port=.*/a echo $port > /shared/vpnport' /manual-connections/port_forwarding.sh > /manual-connections/port_forwarding.sh
 
 CMD ["sh", "run.sh"]
