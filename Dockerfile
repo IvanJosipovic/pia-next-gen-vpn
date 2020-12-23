@@ -12,6 +12,9 @@ COPY run.sh /
 
 RUN chmod -x run.sh
 
+RUN echo -e "./vpn/up.sh\n" >> /manual-connections/openvpn_config/openvpn_up.sh
+RUN echo -e "./vpn/down.sh\n" >> /manual-connections/openvpn_config/openvpn_down.sh
+
 RUN git clone https://github.com/pia-foss/manual-connections.git
 
 CMD ["sh", "run.sh"]
