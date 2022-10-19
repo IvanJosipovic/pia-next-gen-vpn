@@ -10,16 +10,21 @@ services:
     sysctls:
     - net.ipv6.conf.all.disable_ipv6=1
     - net.ipv6.conf.default.disable_ipv6=1
+    - net.ipv4.conf.all.src_valid_mark=1
     environment:
-      - PIA_AUTOCONNECT=openvpn_udp_standard
-      - PIA_USER=
-      - PIA_PASS=
+      - AUTOCONNECT=false
+      - VPN_PROTOCOL=wireguard
+      - DISABLE_IPV6=true
       - PIA_DNS=true
       - PIA_PF=true
+      - PREFERRED_REGION=ca_vancouver
       - MAX_LATENCY=0.05
+      - PIA_USER=
+      - PIA_PASS=
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
     devices:
       - "/dev/net/tun:/dev/net/tun"
     restart: always
+    privileged: true
