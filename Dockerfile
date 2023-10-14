@@ -14,7 +14,7 @@ RUN echo "sh /vpn/down.sh & \n" >> /manual-connections/openvpn_config/openvpn_do
 RUN sed -i '/^port=.*/a echo $port > /shared/vpnport' /manual-connections/port_forwarding.sh
 
 #wireguard
-RUN sed -i '/^wg-quick up pia.*/a sh /vpn/up.sh &' /manual-connections/connect_to_wireguard_with_token.sh
+RUN sed -i '/.*wg-quick up pia.*/a sh /vpn/up.sh &' /manual-connections/connect_to_wireguard_with_token.sh
 
 WORKDIR /manual-connections
 CMD sh ./run_setup.sh
