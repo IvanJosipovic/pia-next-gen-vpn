@@ -2,7 +2,7 @@ FROM alpine
 
 # Install wireguard packges
 RUN apk update && \
- apk add openvpn wireguard-tools git curl jq iptables
+ apk add openvpn wireguard-tools git curl jq iptables ca-certificates
 
 RUN git clone https://github.com/pia-foss/manual-connections.git
 
